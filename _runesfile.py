@@ -18,7 +18,7 @@ class _runesfile (object):
     clam,c0s,c1,betal,betas,evef,pgcon,asolfac,\
     do_ca, ca_closure, ca_entr, ca_trigger, nthresh,ca_deep,\
     rainevap,sigmain,sigmaout,betadcu,betamcu,betascu,\
-    maxMF, do_mynnedmf,errmsg,errflg):
+    maxMF, do_mynnedmf):
         
         tmf_c = conv_mat.convert_to_from_cffi(tmf)
         qmicro_c = conv_mat.convert_to_from_cffi(qmicro)
@@ -78,4 +78,4 @@ class _runesfile (object):
         clam,c0s,c1,betal,betas,evef,pgcon,asolfac,\
         do_ca, ca_closure, ca_entr, ca_trigger, nthresh,ca_deep_c,\
         rainevap_c,sigmain_c,sigmaout_c,betadcu,betamcu,betascu,\
-        maxMF_c, do_mynnedmf,errmsg,errflg)
+        maxMF_c, do_mynnedmf)

@@ -12,4 +12,4 @@ void samfdeepcnv_loop(int im,int km,bool first_time_step,bool restart,\
     double clam,double c0s,double c1,double betal,double betas,double evef,double pgcon,double asolfac,\
     bool do_ca, bool ca_closure, bool ca_entr, bool ca_trigger, double nthresh,double *ca_deep,\
     double *rainevap,double **sigmain,double **sigmaout,double betadcu,double betamcu,double betascu,\
-    double *maxMF, bool do_mynnedmf,char errmsg,int errflg);
+    double *maxMF, bool do_mynnedmf);

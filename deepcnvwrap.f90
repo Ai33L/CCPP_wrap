@@ -22,57 +22,55 @@ module deep_convection_wrap
      &    clam,c0s,c1,betal,betas,evef,pgcon,asolfac,                   &
      &    do_ca, ca_closure, ca_entr, ca_trigger, nthresh,ca_deep,      &
      &    rainevap,sigmain,sigmaout,betadcu,betamcu,betascu,            &
-     &    maxMF, do_mynnedmf,errmsg,errflg) bind (c)
+     &    maxMF, do_mynnedmf) bind (c)
 
     implicit none
 
-    integer(c_int), intent(in)  :: im, km, itc, ntc, ntk, ntr, ncloud
-    integer(c_int), intent(in)  :: islimsk(:)
-    real(c_double), intent(in) :: cliq, cp, cvap, eps, epsm1,   &
-     &   fv, grav, hvap, rd, rv, t0c
-    real(c_double), intent(in) ::  delt
-    real(c_double), intent(in) :: psp(:), delp(:,:),            &
-     &   prslp(:,:),  garea(:), hpbl(:), dot(:,:), phil(:,:)
-    real(c_double), dimension(:), intent(in) :: fscav
-    logical(c_bool), intent(in)  :: first_time_step,restart,hwrf_samfdeep,    &
+    integer(c_int), intent(in), value  :: im, km, itc, ntc, ntk, ntr, ncloud
+    real(c_double), intent(in), dimension(im,km,1) :: tmf
+    integer(c_int), intent(in),dimension(im)  :: islimsk
+    real(c_double), intent(in), value :: cliq, cp, cvap, eps, epsm1,   &
+     &   fv, grav, hvap, rd, rv, t0c, delt
+    real(c_double), intent(in),dimension(im) :: psp, garea, hpbl, maxMF
+    real(c_double), intent(in), dimension(im,km) :: delp, prslp, dot, phil
+    real(c_double), intent(in), dimension(ntc) :: fscav
+    logical(c_bool), intent(in), value  :: first_time_step,restart,hwrf_samfdeep,    &
      &     progsigma,do_mynnedmf
-    real(c_double), intent(in) :: nthresh,betadcu,betamcu,      &
+    real(c_double), intent(in),value :: nthresh,betadcu,betamcu,      &
      &                                    betascu
-    real(c_double), intent(in) :: ca_deep(:)
-    real(c_double), intent(in) :: sigmain(:,:),qmicro(:,:),     &
-     &     tmf(:,:,:),q(:,:), prevsq(:,:)
-    real(c_double),    dimension (:), intent(in) :: maxMF
-    real(c_double), intent(out) :: rainevap(:)
-    real(c_double), intent(out) :: sigmaout(:,:)
-    logical(c_bool), intent(in)  :: do_ca,ca_closure,ca_entr,ca_trigger
-    integer(c_int), intent(inout)  :: kcnv(:)
-    ! DH* TODO - check dimensions of qtr, ntr+2 correct?  *DH
-    real(c_double), intent(inout) ::   qtr(:,:,:),              &
-     &   q1(:,:), t1(:,:),   u1(:,:), v1(:,:),                          &
-     &   cnvw(:,:),  cnvc(:,:)
+    real(c_double), intent(in),dimension(im) :: ca_deep
+    real(c_double), intent(in), dimension(im,km) :: sigmain,qmicro,     &
+     &     q, prevsq
 
-    integer(c_int), intent(out) :: kbot(:), ktop(:)
-    real(c_double), intent(out) :: cldwrk(:),                   &
-     &   rn(:),                                                         &
-     &   ud_mf(:,:),dd_mf(:,:), dt_mf(:,:)
+    real(c_double), intent(out), dimension(im) :: rainevap
+    real(c_double), intent(out), dimension(im,km) :: sigmaout
+    logical(c_bool), intent(in), value  :: do_ca,ca_closure,ca_entr,ca_trigger
+    integer(c_int), intent(inout), dimension(im)  :: kcnv
+
+    ! DH* TODO - check dimensions of qtr, ntr+2 correct?  *DH
+    real(c_double), intent(inout), dimension(im,km,ntr+2) ::   qtr
+    real(c_double), intent(inout), dimension(im,km) :: q1, t1, &
+     &  u1, v1,cnvw,  cnvc
+
+    integer(c_int), intent(out), dimension(im) :: kbot, ktop
+    real(c_double), intent(out), dimension(im) :: cldwrk, rn
+    real(c_double), intent(out), dimension(im,km) :: ud_mf,dd_mf, dt_mf
       
     ! GJF* These variables are conditionally allocated depending on whether the
     !     Morrison-Gettelman microphysics is used, so they must be declared 
     !     using assumed shape.
-    real(c_double), dimension(:,:), intent(inout) ::            &
+    real(c_double), intent(inout), dimension(im,km) ::            &
      &   qlcn, qicn, w_upi, cnv_mfd, cnv_dqldt, clcn                    &
      &,  cnv_fice, cnv_ndrop, cnv_nice, cf_upi
     ! *GJF
-    integer(c_int), intent(in) :: mp_phys, mp_phys_mg
+    integer(c_int), intent(in), value :: mp_phys, mp_phys_mg
 
-    real(c_double), intent(in) :: clam,  c0s,  c1,              &
+    real(c_double), intent(in), value :: clam,  c0s,  c1,              &
      &                     betal,   betas,   asolfac,                   &
      &                     evef,  pgcon
-    character(c_char), intent(out) :: errmsg
-    integer(c_int),          intent(out) :: errflg
     
 
-    print *, "hi there"
+    !print *, clam
 
     call samfdeepcnv_run (im,km,logical(first_time_step),logical(restart),        &
      &    tmf,qmicro,itc,ntc,cliq,cp,cvap,                              &
@@ -86,7 +84,7 @@ module deep_convection_wrap
      &    clam,c0s,c1,betal,betas,evef,pgcon,asolfac,                   &
      &    logical(do_ca), logical(ca_closure), logical(ca_entr), logical(ca_trigger), nthresh,ca_deep,      &
      &    rainevap,sigmain,sigmaout,betadcu,betamcu,betascu,            &
-     &    maxMF, logical(do_mynnedmf),errmsg,errflg)
+     &    maxMF, logical(do_mynnedmf))
 
 
     end subroutine samfdeepcnv_loop 

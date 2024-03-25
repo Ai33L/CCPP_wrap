@@ -3,8 +3,8 @@ import numpy as np
 
 im=1
 km=5
-first_time_step=0
-restart=0
+first_time_step=False
+restart=False
 tmf=np.zeros((im,km,1))
 qmicro=np.zeros((im,km))
 itc=0
@@ -27,14 +27,14 @@ delp=np.ones((im,km))*20000
 prslp=np.ones((im,km))*np.array([100000,80000,60000,40000,20000])
 psp=np.ones(im)*100010
 phil=np.ones((im,km))*100000
-qtr=np.zeros((im,km,1))
+qtr=np.zeros((im,km,ntr+2))
 prevsq=np.ones((im,km))*0.01
 q=np.ones((im,km))*0.01
 q1=np.ones((im,km))*0.01
 t1=np.ones((im,km))*273
 u1=np.ones((im,km))*3
 v1=np.ones((im,km))*3
-fscav=np.array([0.1])
+fscav=np.ones(ntc)*0.1
 hwrf_samfdeep=False
 progsigma=False
 cldwrk=np.ones(im)*1000
@@ -73,10 +73,10 @@ betas=0.2
 evef=0.2
 pgcon=0.2
 asolfac=0.2
-do_ca=False
-ca_closure=False
-ca_entr=False
-ca_trigger=False
+do_ca=True
+ca_closure=True
+ca_entr=True
+ca_trigger=True
 nthresh=1
 ca_deep=np.ones(im)*0.2
 rainevap=np.ones(im)*100
@@ -104,4 +104,4 @@ runesobject._samfdeepcnv_loop(im,km,first_time_step,\
     clam,c0s,c1,betal,betas,evef,pgcon,asolfac,\
     do_ca, ca_closure, ca_entr, ca_trigger, nthresh,ca_deep,\
     rainevap,sigmain,sigmaout,betadcu,betamcu,betascu,\
-    maxMF, do_mynnedmf,errmsg,errflg)
+    maxMF, do_mynnedmf)

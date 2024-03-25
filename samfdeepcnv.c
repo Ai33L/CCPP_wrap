@@ -571,7 +571,7 @@ static void (*_cffi_call_python_org)(struct _cffi_externpy_s *, char *);
 /************************************************************/
 
 static void *_cffi_types[] = {
-/*  0 */ _CFFI_OP(_CFFI_OP_FUNCTION, 89), // void()(int, int, _Bool, _Bool, double * *, double * *, int, int, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double * *, double * *, double *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double *, _Bool, _Bool, double *, double *, int *, int *, int *, int *, double *, double * *, int, double *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, int, int, double, double, double, double, double, double, double, double, _Bool, _Bool, _Bool, _Bool, double, double *, double *, double * *, double * *, double, double, double, double *, _Bool, char, int)
+/*  0 */ _CFFI_OP(_CFFI_OP_FUNCTION, 87), // void()(int, int, _Bool, _Bool, double * *, double * *, int, int, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double * *, double * *, double *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double *, _Bool, _Bool, double *, double *, int *, int *, int *, int *, double *, double * *, int, double *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, double * *, int, int, double, double, double, double, double, double, double, double, _Bool, _Bool, _Bool, _Bool, double, double *, double *, double * *, double * *, double, double, double, double *, _Bool)
 /*  1 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 7), // int
 /*  2 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 7),
 /*  3 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 1), // _Bool
@@ -657,15 +657,13 @@ static void *_cffi_types[] = {
 /* 83 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 14),
 /* 84 */ _CFFI_OP(_CFFI_OP_NOOP, 25),
 /* 85 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 1),
-/* 86 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 2), // char
-/* 87 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 7),
-/* 88 */ _CFFI_OP(_CFFI_OP_FUNCTION_END, 0),
-/* 89 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 0), // void
+/* 86 */ _CFFI_OP(_CFFI_OP_FUNCTION_END, 0),
+/* 87 */ _CFFI_OP(_CFFI_OP_PRIMITIVE, 0), // void
 };
 
-static void _cffi_d_samfdeepcnv_loop(int x0, int x1, _Bool x2, _Bool x3, double * * x4, double * * x5, int x6, int x7, double x8, double x9, double x10, double x11, double x12, double x13, double x14, double x15, double x16, double x17, double x18, double x19, double x20, double x21, double * * x22, double * * x23, double * x24, double * * x25, double * * x26, double * * x27, double * * x28, double * * x29, double * * x30, double * * x31, double * * x32, double * x33, _Bool x34, _Bool x35, double * x36, double * x37, int * x38, int * x39, int * x40, int * x41, double * x42, double * * x43, int x44, double * x45, double * * x46, double * * x47, double * * x48, double * * x49, double * * x50, double * * x51, double * * x52, double * * x53, double * * x54, double * * x55, double * * x56, double * * x57, double * * x58, double * * x59, double * * x60, int x61, int x62, double x63, double x64, double x65, double x66, double x67, double x68, double x69, double x70, _Bool x71, _Bool x72, _Bool x73, _Bool x74, double x75, double * x76, double * x77, double * * x78, double * * x79, double x80, double x81, double x82, double * x83, _Bool x84, char x85, int x86)
+static void _cffi_d_samfdeepcnv_loop(int x0, int x1, _Bool x2, _Bool x3, double * * x4, double * * x5, int x6, int x7, double x8, double x9, double x10, double x11, double x12, double x13, double x14, double x15, double x16, double x17, double x18, double x19, double x20, double x21, double * * x22, double * * x23, double * x24, double * * x25, double * * x26, double * * x27, double * * x28, double * * x29, double * * x30, double * * x31, double * * x32, double * x33, _Bool x34, _Bool x35, double * x36, double * x37, int * x38, int * x39, int * x40, int * x41, double * x42, double * * x43, int x44, double * x45, double * * x46, double * * x47, double * * x48, double * * x49, double * * x50, double * * x51, double * * x52, double * * x53, double * * x54, double * * x55, double * * x56, double * * x57, double * * x58, double * * x59, double * * x60, int x61, int x62, double x63, double x64, double x65, double x66, double x67, double x68, double x69, double x70, _Bool x71, _Bool x72, _Bool x73, _Bool x74, double x75, double * x76, double * x77, double * * x78, double * * x79, double x80, double x81, double x82, double * x83, _Bool x84)
 {
-  samfdeepcnv_loop(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60, x61, x62, x63, x64, x65, x66, x67, x68, x69, x70, x71, x72, x73, x74, x75, x76, x77, x78, x79, x80, x81, x82, x83, x84, x85, x86);
+  samfdeepcnv_loop(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60, x61, x62, x63, x64, x65, x66, x67, x68, x69, x70, x71, x72, x73, x74, x75, x76, x77, x78, x79, x80, x81, x82, x83, x84);
 }
 #ifndef PYPY_VERSION
 static PyObject *
@@ -756,8 +754,6 @@ _cffi_f_samfdeepcnv_loop(PyObject *self, PyObject *args)
   double x82;
   double * x83;
   _Bool x84;
-  char x85;
-  int x86;
   Py_ssize_t datasize;
   struct _cffi_freeme_s *large_args_free = NULL;
   PyObject *arg0;
@@ -845,10 +841,8 @@ _cffi_f_samfdeepcnv_loop(PyObject *self, PyObject *args)
   PyObject *arg82;
   PyObject *arg83;
   PyObject *arg84;
-  PyObject *arg85;
-  PyObject *arg86;
 
-  if (!PyArg_UnpackTuple(args, "samfdeepcnv_loop", 87, 87, &arg0, &arg1, &arg2, &arg3, &arg4, &arg5, &arg6, &arg7, &arg8, &arg9, &arg10, &arg11, &arg12, &arg13, &arg14, &arg15, &arg16, &arg17, &arg18, &arg19, &arg20, &arg21, &arg22, &arg23, &arg24, &arg25, &arg26, &arg27, &arg28, &arg29, &arg30, &arg31, &arg32, &arg33, &arg34, &arg35, &arg36, &arg37, &arg38, &arg39, &arg40, &arg41, &arg42, &arg43, &arg44, &arg45, &arg46, &arg47, &arg48, &arg49, &arg50, &arg51, &arg52, &arg53, &arg54, &arg55, &arg56, &arg57, &arg58, &arg59, &arg60, &arg61, &arg62, &arg63, &arg64, &arg65, &arg66, &arg67, &arg68, &arg69, &arg70, &arg71, &arg72, &arg73, &arg74, &arg75, &arg76, &arg77, &arg78, &arg79, &arg80, &arg81, &arg82, &arg83, &arg84, &arg85, &arg86))
+  if (!PyArg_UnpackTuple(args, "samfdeepcnv_loop", 85, 85, &arg0, &arg1, &arg2, &arg3, &arg4, &arg5, &arg6, &arg7, &arg8, &arg9, &arg10, &arg11, &arg12, &arg13, &arg14, &arg15, &arg16, &arg17, &arg18, &arg19, &arg20, &arg21, &arg22, &arg23, &arg24, &arg25, &arg26, &arg27, &arg28, &arg29, &arg30, &arg31, &arg32, &arg33, &arg34, &arg35, &arg36, &arg37, &arg38, &arg39, &arg40, &arg41, &arg42, &arg43, &arg44, &arg45, &arg46, &arg47, &arg48, &arg49, &arg50, &arg51, &arg52, &arg53, &arg54, &arg55, &arg56, &arg57, &arg58, &arg59, &arg60, &arg61, &arg62, &arg63, &arg64, &arg65, &arg66, &arg67, &arg68, &arg69, &arg70, &arg71, &arg72, &arg73, &arg74, &arg75, &arg76, &arg77, &arg78, &arg79, &arg80, &arg81, &arg82, &arg83, &arg84))
     return NULL;
 
   x0 = _cffi_to_c_int(arg0, int);
@@ -1406,17 +1400,9 @@ _cffi_f_samfdeepcnv_loop(PyObject *self, PyObject *args)
   if (x84 == (_Bool)-1 && PyErr_Occurred())
     return NULL;
 
-  x85 = (char)_cffi_to_c_char(arg85);
-  if (x85 == (char)-1 && PyErr_Occurred())
-    return NULL;
-
-  x86 = _cffi_to_c_int(arg86, int);
-  if (x86 == (int)-1 && PyErr_Occurred())
-    return NULL;
-
   Py_BEGIN_ALLOW_THREADS
   _cffi_restore_errno();
-  { samfdeepcnv_loop(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60, x61, x62, x63, x64, x65, x66, x67, x68, x69, x70, x71, x72, x73, x74, x75, x76, x77, x78, x79, x80, x81, x82, x83, x84, x85, x86); }
+  { samfdeepcnv_loop(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49, x50, x51, x52, x53, x54, x55, x56, x57, x58, x59, x60, x61, x62, x63, x64, x65, x66, x67, x68, x69, x70, x71, x72, x73, x74, x75, x76, x77, x78, x79, x80, x81, x82, x83, x84); }
   _cffi_save_errno();
   Py_END_ALLOW_THREADS
 
@@ -1445,7 +1431,7 @@ static const struct _cffi_type_context_s _cffi_type_context = {
   0,  /* num_enums */
   0,  /* num_typenames */
   NULL,  /* no includes */
-  90,  /* num_types */
+  88,  /* num_types */
   0,  /* flags */
 };
 
