@@ -1,7 +1,7 @@
 import _runesfile as rf
 import numpy as np
 
-im=1
+im=3
 km=5
 first_time_step=False
 restart=False
@@ -41,7 +41,7 @@ cldwrk=np.ones(im)*1000
 rn=np.ones(im)*1000
 kbot=np.intc(np.ones(im)*2)
 ktop=np.intc(np.ones(im)*3)
-kcnv=np.intc(np.ones(im))
+kcnv=np.intc(np.zeros(im))
 islimsk=np.zeros(im)
 garea=np.ones(im)*10000
 dot=np.ones((im,km))*10
@@ -87,8 +87,6 @@ betamcu=0
 betascu=0
 maxMF=np.ones(im)*0.5
 do_mynnedmf=False
-errmsg="m".encode('ascii')
-errflg=0
 
 runesobject = rf._runesfile()
 
