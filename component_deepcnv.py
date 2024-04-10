@@ -165,7 +165,7 @@ class SamfDeepConv(Stepper):
             'domain': 'atmosphere_horizontal'},
     }
 
-    def __init__(self, first_time_step=True, restart=True, itc=0, ntc=0, t0c=273.15, ntk=0,
+    def __init__(self, first_time_step=False, restart=False, itc=0, ntc=0, t0c=273.15, ntk=0,
                  ntr=0, hwrf_samfdeep=True, prosigma=True, ncloud=1, 
                  betadcu=0, betamcu=0, betascu=0, mp_phys=0, mp_phys_mg=0, clam=0.2, c0s=0.2,
                  c1=0.2, betal=0.2, betas=0.2, evef=0.2, pgcon=0.2, asolfac=0.2, do_ca=True,
@@ -236,18 +236,18 @@ class SamfDeepConv(Stepper):
         prevsq=np.ones((im,km))*0.1 #previous specific humidity
 
         #many inout arrays
-        cnvw=np.ones((im,km))*100
-        cnvc=np.ones((im,km))*100
-        QLCN=np.ones((im,km))*0.1
-        QICN=np.ones((im,km))*0.1
-        w_upi=np.ones((im,km))*0.01
-        cf_upi=np.ones((im,km))*0.1
-        CNV_MFD=np.ones((im,km))*1000
-        CNV_DQLDT=np.ones((im,km))*10
-        CLCN=np.ones((im,km))*0.01
-        CNV_FICE=np.ones((im,km))*0.001
-        CNV_NDROP=np.ones((im,km))*20
-        CNV_NICE=np.ones((im,km))*20
+        cnvw=np.ones((im,km))*100 # convective_cloud_water_mixing_ratio
+        cnvc=np.ones((im,km))*100 # convective_cloud_cover
+        QLCN=np.ones((im,km))*0.1 # mass_fraction_of_convective_cloud_liquid_water
+        QICN=np.ones((im,km))*0.1 # mass_fraction_of_convective_cloud_ice
+        w_upi=np.ones((im,km))*0.01 # vertical_velocity_for_updraft
+        cf_upi=np.ones((im,km))*0.1 # convective_cloud_fraction_for_microphysics
+        CNV_MFD=np.ones((im,km))*1000 # detrained_mass_flux
+        CNV_DQLDT=np.ones((im,km))*10 # tendency_of_cloud_water_due_to_convective_microphysics
+        CLCN=np.ones((im,km))*0.01 # convective_cloud_volume_fraction
+        CNV_FICE=np.ones((im,km))*0.001 # ice_fraction_in_convective_tower
+        CNV_NDROP=np.ones((im,km))*20 # number_concentration_of_cloud_liquid_water_particles_for_detrainment
+        CNV_NICE=np.ones((im,km))*20 # number_concentration_of_ice_crystals_for_detrainment
 
         new_state['air_temperature'][:] = state["air_temperature"]
         new_state['specific_humidity'][:] = state['specific_humidity']
