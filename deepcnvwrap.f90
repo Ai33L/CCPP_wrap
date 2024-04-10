@@ -70,7 +70,7 @@ module deep_convection_wrap
      &                     evef,  pgcon
     
 
-    print *, tmf
+    !print *, prslp
 
     call samfdeepcnv_run (im,km,logical(first_time_step),logical(restart),        &
      &    tmf,qmicro,itc,ntc,cliq,cp,cvap,                              &
