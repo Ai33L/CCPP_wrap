@@ -75,6 +75,58 @@ class SamfDeepConv(Stepper):
             'dims': ['*'],
             'units': 'm s^-1',
         },
+        'convective_cloud_water_mixing_ratio': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg kg^-1',
+        },
+        'convective_cloud_cover': {
+            'dims': ['mid_levels', '*'],
+            'units': 'dimensionless',
+        },
+        'mass_fraction_of_convective_cloud_liquid_water': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg kg^-1',
+        },
+        'mass_fraction_of_convective_cloud_ice': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg kg^-1',
+        },
+        'vertical_velocity_for_updraft': {
+            'dims': ['mid_levels', '*'],
+            'units': 'm s^-1',
+        },
+        'convective_cloud_fraction_for_microphysics': {
+            'dims': ['mid_levels', '*'],
+            'units': 'dimensionless',
+        },
+        'detrained_mass_flux': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg m^-2 s^-1',
+        },
+        'tendency_of_cloud_water_due_to_convective_microphysics': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg m^-2 s^-1',
+        },
+        'convective_cloud_volume_fraction': {
+            'dims': ['mid_levels', '*'],
+            'units': 'dimensionless',
+        },
+        'ice_fraction_in_convective_tower': {
+            'dims': ['mid_levels', '*'],
+            'units': 'dimensionless',
+        },
+        'number_concentration_of_cloud_liquid_water_particles_for_detrainment': {
+            'dims': ['mid_levels', '*'],
+            'units': 'm^-3',
+        },
+        'number_concentration_of_ice_crystals_for_detrainment': {
+            'dims': ['mid_levels', '*'],
+            'units': 'm^-3',
+        },
+        'specific_humidity_on_previous_timestep': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg kg^-1',
+        },
     }
 
     diagnostic_properties = {
@@ -93,6 +145,10 @@ class SamfDeepConv(Stepper):
         'vertical_index_at_cloud_top': {
             'dims': ['*'],
             'units': 'index',
+        },
+        'specific_humidity_on_previous_timestep': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg kg^-1',
         },
     }
 
@@ -137,6 +193,54 @@ class SamfDeepConv(Stepper):
             'dims': ['*'],
             'units': 'm^2 s^-2',
         },
+        'convective_cloud_water_mixing_ratio': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg kg^-1',
+        },
+        'convective_cloud_cover': {
+            'dims': ['mid_levels', '*'],
+            'units': 'dimensionless',
+        },
+        'mass_fraction_of_convective_cloud_liquid_water': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg kg^-1',
+        },
+        'mass_fraction_of_convective_cloud_ice': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg kg^-1',
+        },
+        'vertical_velocity_for_updraft': {
+            'dims': ['mid_levels', '*'],
+            'units': 'm s^-1',
+        },
+        'convective_cloud_fraction_for_microphysics': {
+            'dims': ['mid_levels', '*'],
+            'units': 'dimensionless',
+        },
+        'detrained_mass_flux': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg m^-2 s^-1',
+        },
+        'tendency_of_cloud_water_due_to_convective_microphysics': {
+            'dims': ['mid_levels', '*'],
+            'units': 'kg m^-2 s^-1',
+        },
+        'convective_cloud_volume_fraction': {
+            'dims': ['mid_levels', '*'],
+            'units': 'dimensionless',
+        },
+        'ice_fraction_in_convective_tower': {
+            'dims': ['mid_levels', '*'],
+            'units': 'dimensionless',
+        },
+        'number_concentration_of_cloud_liquid_water_particles_for_detrainment': {
+            'dims': ['mid_levels', '*'],
+            'units': 'm^-3',
+        },
+        'number_concentration_of_ice_crystals_for_detrainment': {
+            'dims': ['mid_levels', '*'],
+            'units': 'm^-3',
+        },
     }
     extra_init_properties = {
     # 'tendency_of_vertically_diffused_tracer_concentration': {'value': 0.,
@@ -163,13 +267,52 @@ class SamfDeepConv(Stepper):
     'maximum_mass_flux': {'value': 1,
             'units': 'm s^-1',
             'domain': 'atmosphere_horizontal'},
+    'convective_cloud_water_mixing_ratio': {'value': 0,
+            'units': 'kg kg^-1',
+            'domain': 'atmosphere'},
+    'convective_cloud_cover': {'value': 0,
+            'units': 'dimensionless',
+            'domain': 'atmosphere'},
+    'mass_fraction_of_convective_cloud_liquid_water': {'value': 0,
+            'units': 'kg kg^-1',
+            'domain': 'atmosphere'},
+    'mass_fraction_of_convective_cloud_ice': {'value': 0,
+            'units': 'kg kg^-1',
+            'domain': 'atmosphere'},
+    'vertical_velocity_for_updraft': {'value': 0,
+            'units': 'm s^-1',
+            'domain': 'atmosphere'},
+    'convective_cloud_fraction_for_microphysics': {'value': 0,
+            'units': 'dimensionless',
+            'domain': 'atmosphere'},
+    'detrained_mass_flux': {'value': 0,
+            'units': 'kg m^-2 s^-1',
+            'domain': 'atmosphere'},
+    'tendency_of_cloud_water_due_to_convective_microphysics': {'value': 0,
+            'units': 'kg m^-2 s^-1',
+            'domain': 'atmosphere'},
+    'convective_cloud_volume_fraction': {'value': 0,
+            'units': 'dimensionless',
+            'domain': 'atmosphere'},
+    'ice_fraction_in_convective_tower': {'value': 0,
+            'units': 'dimensionless',
+            'domain': 'atmosphere'},
+    'number_concentration_of_cloud_liquid_water_particles_for_detrainment': {'value': 0,
+            'units': 'm^-3',
+            'domain': 'atmosphere'},
+    'number_concentration_of_ice_crystals_for_detrainment': {'value': 0,
+            'units': 'm^-3',
+            'domain': 'atmosphere'},
+    'specific_humidity_on_previous_timestep': {'value': 0,
+            'units': 'kg kg^-1',
+            'domain': 'atmosphere'},
     }
 
     def __init__(self, first_time_step=False, restart=False, itc=0, ntc=0, t0c=273.15, ntk=0,
-                 ntr=0, hwrf_samfdeep=True, prosigma=True, ncloud=1, 
-                 betadcu=0, betamcu=0, betascu=0, mp_phys=0, mp_phys_mg=0, clam=0.2, c0s=0.2,
+                 ntr=0, hwrf_samfdeep=False, prosigma=False, ncloud=1, 
+                 betadcu=1, betamcu=1, betascu=1, mp_phys=1, mp_phys_mg=1, clam=0.2, c0s=0.2,
                  c1=0.2, betal=0.2, betas=0.2, evef=0.2, pgcon=0.2, asolfac=0.2, do_ca=True,
-                 ca_closure=True, ca_entr=True, ca_trigger=True, nthresh=1, do_mynnedmf=False,**kwargs):
+                 ca_closure=False, ca_entr=False, ca_trigger=False, nthresh=1, do_mynnedmf=False,**kwargs):
         
         self._first_time_step=first_time_step
         self._restart=restart
@@ -229,31 +372,31 @@ class SamfDeepConv(Stepper):
         )
 
         tmf=np.zeros((im,km,1)) #diffused tracer
-        phil=np.ones((im,km))*100 #geopot
-        qtr=np.zeros((im,km,2)) #convective tracers
+        qtr=np.zeros((im,km,1)) #convective tracers
         fscav=np.array([]) #chemical tracer
-        garea=np.ones(im)*100000 #area of cell
-        prevsq=np.ones((im,km))*0.1 #previous specific humidity
+        garea=np.ones(im)*1e9 #area of cell
 
-        #many inout arrays
-        cnvw=np.ones((im,km))*100 # convective_cloud_water_mixing_ratio
-        cnvc=np.ones((im,km))*100 # convective_cloud_cover
-        QLCN=np.ones((im,km))*0.1 # mass_fraction_of_convective_cloud_liquid_water
-        QICN=np.ones((im,km))*0.1 # mass_fraction_of_convective_cloud_ice
-        w_upi=np.ones((im,km))*0.01 # vertical_velocity_for_updraft
-        cf_upi=np.ones((im,km))*0.1 # convective_cloud_fraction_for_microphysics
-        CNV_MFD=np.ones((im,km))*1000 # detrained_mass_flux
-        CNV_DQLDT=np.ones((im,km))*10 # tendency_of_cloud_water_due_to_convective_microphysics
-        CLCN=np.ones((im,km))*0.01 # convective_cloud_volume_fraction
-        CNV_FICE=np.ones((im,km))*0.001 # ice_fraction_in_convective_tower
-        CNV_NDROP=np.ones((im,km))*20 # number_concentration_of_cloud_liquid_water_particles_for_detrainment
-        CNV_NICE=np.ones((im,km))*20 # number_concentration_of_ice_crystals_for_detrainment
+        dz=self._rd*state['air_temperature']/self._grav*np.log(state['air_pressure_on_interface_levels'][:-1]/state['air_pressure_on_interface_levels'][1:])
+        phil=dz.cumsum(axis=0)*self._grav
 
         new_state['air_temperature'][:] = state["air_temperature"]
         new_state['specific_humidity'][:] = state['specific_humidity']
         new_state['northward_wind'][:] = state['northward_wind']
         new_state['eastward_wind'][:] = state['eastward_wind']
         new_state['flag_deep_convection'][:] = state['flag_deep_convection']
+        new_state['convective_cloud_water_mixing_ratio'][:]=state['convective_cloud_water_mixing_ratio']
+        new_state['convective_cloud_cover'][:]=state['convective_cloud_cover']
+        new_state['mass_fraction_of_convective_cloud_liquid_water'][:]=state['mass_fraction_of_convective_cloud_liquid_water']
+        new_state['mass_fraction_of_convective_cloud_ice'][:]=state['mass_fraction_of_convective_cloud_ice']
+        new_state['vertical_velocity_for_updraft'][:]=state['vertical_velocity_for_updraft']
+        new_state['convective_cloud_fraction_for_microphysics'][:]=state['convective_cloud_fraction_for_microphysics']
+        new_state['detrained_mass_flux'][:]=state['detrained_mass_flux']
+        new_state['tendency_of_cloud_water_due_to_convective_microphysics'][:]=state['tendency_of_cloud_water_due_to_convective_microphysics']
+        new_state['convective_cloud_volume_fraction'][:]=state['convective_cloud_volume_fraction']
+        new_state['ice_fraction_in_convective_tower'][:]=state['ice_fraction_in_convective_tower']
+        new_state['number_concentration_of_cloud_liquid_water_particles_for_detrainment'][:]=state['number_concentration_of_cloud_liquid_water_particles_for_detrainment']
+        new_state['number_concentration_of_ice_crystals_for_detrainment'][:]=state['number_concentration_of_ice_crystals_for_detrainment']
+        diagnostics['specific_humidity_on_previous_timestep'][:]=state['specific_humidity_on_previous_timestep']
 
         runesobject._samfdeepcnv_loop(im,km,self._first_time_step,\
         self._restart,tmf,
@@ -262,7 +405,8 @@ class SamfDeepConv(Stepper):
         self._eps,self._epsm1,self._fv,self._grav,self._hvap,self._rd,self._rv,\
         self._t0c,timestep.total_seconds(),self._ntk,self._ntr,
         state['air_pressure_on_interface_levels'][:-1]-state['air_pressure_on_interface_levels'][1:],
-        state['air_pressure'],state['surface_air_pressure'],phil,qtr,prevsq,state['specific_humidity'].copy(),
+        state['air_pressure'],state['surface_air_pressure'],phil,qtr,diagnostics['specific_humidity_on_previous_timestep'],
+        state['specific_humidity'],
         new_state['specific_humidity'],new_state['air_temperature'],new_state['eastward_wind'],new_state['northward_wind'],
         fscav,self._hwrf_samfdeep,self._prosigma,diagnostics['cloud_work_function'],
         diagnostics['lwe_thickness_of_deep_convective_precipitation_amount'],
@@ -272,9 +416,13 @@ class SamfDeepConv(Stepper):
         new_state['instantaneous_atmosphere_updraft_convective_mass_flux'],
         new_state['instantaneous_atmosphere_downdraft_convective_mass_flux'],
         new_state['instantaneous_atmosphere_detrainment_convective_mass_flux'],
-        cnvw,cnvc,\
-        QLCN, QICN, w_upi, cf_upi, CNV_MFD,\
-        CNV_DQLDT,CLCN,CNV_FICE,CNV_NDROP,CNV_NICE,self._mp_phys,self._mp_phys_mg,\
+        new_state['convective_cloud_water_mixing_ratio'],new_state['convective_cloud_cover'],\
+        new_state['mass_fraction_of_convective_cloud_liquid_water'], new_state['mass_fraction_of_convective_cloud_ice'],
+        new_state['vertical_velocity_for_updraft'], new_state['convective_cloud_fraction_for_microphysics'],
+        new_state['detrained_mass_flux'],new_state['tendency_of_cloud_water_due_to_convective_microphysics'],
+        new_state['convective_cloud_volume_fraction'],new_state['ice_fraction_in_convective_tower'],
+        new_state['number_concentration_of_cloud_liquid_water_particles_for_detrainment'],
+        new_state['number_concentration_of_ice_crystals_for_detrainment'],self._mp_phys,self._mp_phys_mg,\
         self._clam,self._c0s,self._c1,self._betal,self._betas,self._evef,self._pgcon,self._asolfac,\
         self._do_ca, self._ca_closure, self._ca_entr, self._ca_trigger, self._nthresh,
         state['cellular_automata_area_fraction_for_deep_convection_from_coupled_process'],
